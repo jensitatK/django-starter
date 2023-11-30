@@ -11,9 +11,3 @@ class UserViewSet(viewsets.ModelViewSet):
     """
     queryset = User.objects.all().order_by('-created_at')
     serializer_class = UserSerializer
-
-    def partial_update(self, request, pk=None):
-        serializer = UpdateUserInfoSerializer(data=request.data, partial=True)
-        serializer.is_valid(raise_exception=True)
-        data = serializer.save()
-        return Response(data=data, status=status.HTTP_202_ACCEPTED)
