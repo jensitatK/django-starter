@@ -10,4 +10,9 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
         fields = ['id', 'firstname', 'lastname', 'age']
-    
+
+class UpdateUserInfoSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = ('firstname', 'lastname', 'age')
